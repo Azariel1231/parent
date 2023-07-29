@@ -1,0 +1,50 @@
+class Parent():
+
+    def __init__(self):
+        print("Esta es una clase padre")
+        
+    def menu(dish):
+        if dish=="hamburguesa":
+            print("Puedes añadir los siguientes complementos")
+            print("Más queso | Añadir jalapeño")
+        if dish=="Muffi":
+            print("Puedes añadir los siguientes complementos")
+            print("Añadir chispas de chocolate | Añadir Crema batida")
+        else:
+            print("Por favor, eliga una comida")
+           
+    def final_amount(dish, add_ons): 
+        if dish=="hamburguesa" and add_ons=="queso": 
+            print("Cantidad a pagar $ 250") 
+        elif dish=="hamburguesa" and add_ons=="jalapeño": 
+            print("Cantidad a pagar $ 350") 
+        elif dish=="Muffi" and add_ons=="chispas de chocolate":
+            print("Cantidad a pagar $ 250") 
+        elif dish=="Muffi" and add_ons=="crema batida": 
+            print("Cantidad a pagar $ 450")
+            
+    
+class Child_1(Parent):
+    
+    def __init__(self,dish):
+        self.new_dish = dish
+        
+    def get_menu(self):
+        Parent.menu(self.new_dish)
+        
+
+class Child_2(Parent):
+    
+    def __init__(self,dish,addons):
+        self.new_dish = dish
+        self.new_addons = addons
+        
+    def get_final_amount(self):
+        Parent.final_amount(self.new_dish,self.new_addons)
+
+        
+Child1_obj=Child_1("hamburguesa")
+Child1_obj.get_menu()
+
+Child2_obj=Child_2("Muffi", "chispas de chocolate")
+Child2_obj.get_final_amount()
